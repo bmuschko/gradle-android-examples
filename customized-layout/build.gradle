@@ -38,6 +38,8 @@ android {
                 srcDirs = ['src/res'] 
             }
         }
+        
+        instrumentTest.setRoot('tests')
     }
 }
 
