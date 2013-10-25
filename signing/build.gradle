@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.3'
+    }
+}
+
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-lang:commons-lang:2.6'
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion '18.1.0'
+    
+    signingConfigs {
+        debug {
+            storeFile file('keys/debug.keystore')
+            storePassword 'android'
+            keyAlias 'AndroidDebugKey'
+            keyPassword 'android'
+        }
+        
+        release {
+            storeFile file('keys/release.keystore')
+            storePassword 'android'
+            keyAlias 'AndroidReleaseKey'
+            keyPassword 'android'
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}

@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.3'
+    }
+}
+
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion '18.1.0'
+    
+    productFlavors {
+        free {
+            buildConfig 'public final static org.gradle.examples.android.MonetizationType monetizationType = org.gradle.examples.android.MonetizationType.FREE;'
+            versionCode 20
+        }
+
+        pro {
+            buildConfig 'public final static org.gradle.examples.android.MonetizationType monetizationType = org.gradle.examples.android.MonetizationType.PRO;'        
+            minSdkVersion 14
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-lang:commons-lang:2.6'
+    proCompile 'commons-codec:commons-codec:1.8'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}

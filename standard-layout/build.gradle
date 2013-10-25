@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.3'
+    }
+}
+
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-lang:commons-lang:2.6'
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion '18.1.0'
+    
+    defaultConfig {
+        versionCode 12
+        versionName '2.0'
+        minSdkVersion 16
+        targetSdkVersion 16
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}

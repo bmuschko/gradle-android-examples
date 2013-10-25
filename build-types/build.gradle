@@ -21,6 +21,14 @@ dependencies {
 android {
     compileSdkVersion 18
     buildToolsVersion '18.1.0'
+    
+    buildTypes {
+        releaseProguard.initWith(buildTypes.release)
+        
+        releaseProguard {
+            runProguard true
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
