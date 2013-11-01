@@ -38,19 +38,21 @@
 
     apply plugin: 'android'
 
-## Basic Android configuration
+## Configuring manifest entries
 
-    android {
+    android {                       <--- Android plugin extension object
         compileSdkVersion 18        <--- Android SDK version
         buildToolsVersion '18.1.0'  <--- Build tools version
 
         defaultConfig {
-            versionCode 12
-            versionName '2.0'
-            minSdkVersion 10
-            targetSdkVersion 10
+            versionCode 12          <--- Represents the version of the application code
+            versionName '2.0'       <--- Application version label shown to the user
+            minSdkVersion 10        <--- Minimum API Level required for the application to run
+            targetSdkVersion 10     <--- API Level that the application targets
         }
     }
+    
+If a property is not set through the DSL, a default value from the manifest will be used.
     
 ## Android tasks
 
@@ -64,3 +66,14 @@
     * Uninstall app.
 * `installDebug`: Installs debug application on connected device.
 * `uninstallDebug`: Deinstalls deployed debug application on connected device.
+
+The plugin creates install/uninstall tasks for all build types (debug, release), as long as they can be installed (which requires signing).
+
+## Testing
+
+* The plugin builds a test APK that can be deployed to a device for testing the application.
+* The test `AndroidManifest.xml` as it is automatically generated.
+* By default the test app uses the `debug` build type.
+* Test dependencies can be added by using the configuration `instrumentTestCompile`.
+* The test app is built by the task `assembleTest`.
+* Execute tests with `connectedInstrumentTest`.

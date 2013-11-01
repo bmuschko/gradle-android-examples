@@ -37,6 +37,12 @@ android {
             keyPassword 'android'
         }
     }
+    
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
