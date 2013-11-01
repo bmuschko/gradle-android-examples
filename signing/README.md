@@ -32,7 +32,7 @@ By default, there is a `debug` configuration that is setup to use a debug keysto
     
 ## Checking the signing configuration
 
-* `signingReport`: Renders the configured signing configuration for each build type.
+Example output:
 
     $ ./gradlew signingReport
     :signingReport
@@ -55,3 +55,5 @@ By default, there is a `debug` configuration that is setup to use a debug keysto
     SHA1: CE:82:FC:ED:0A:37:3F:75:44:2E:85:4F:E0:52:08:29:A9:78:1F:DC
     Valid until: Saturday, March 9, 2041
     ----------
+    
+* `signingReport`: Renders the configured signing configuration for each build type.
