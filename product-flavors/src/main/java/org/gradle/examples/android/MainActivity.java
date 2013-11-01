@@ -18,10 +18,10 @@ public class MainActivity extends Activity {
         text.setText("Hello World of " + LabelProvider.getVersion() + " " + StringUtils.capitalize("android") + "!");
         
         if(BuildConfig.monetizationType == MonetizationType.FREE) { 
-            text.setText("You have 30 days to evaluate this product."); 
+            text.append("\n\nYou have 30 days to evaluate this product."); 
         }
-        else if(BuildConfig.monetizationType == MonetizationType.FREE) { 
-            text.setText("Fully registered version with license key " + LabelProvider.getKey() + "."); 
+        else if(BuildConfig.monetizationType == MonetizationType.PRO) { 
+            text.append("\n\nFully registered version with license key " + LabelProvider.getKey() + "."); 
         }
                 
         setContentView(text);

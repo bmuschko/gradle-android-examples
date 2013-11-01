@@ -22,7 +22,8 @@ android {
 
         pro {
             buildConfig 'public final static org.gradle.examples.android.MonetizationType monetizationType = org.gradle.examples.android.MonetizationType.PRO;'        
-            minSdkVersion 14
+            minSdkVersion 10
+            targetSdkVersion 10
         }
     }
 }
